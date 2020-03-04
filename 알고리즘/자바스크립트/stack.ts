@@ -1,5 +1,6 @@
 class Arr {
-    array; constructor() {
+    array;
+    constructor() {
         this.array = [];
     }
     public push(data) {
