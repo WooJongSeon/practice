@@ -1,6 +1,5 @@
 function solution(N) {
     var answer = 0;
-
     let i = 1;
     let value1 = 0;
     let value2 = 1;
@@ -12,9 +11,7 @@ function solution(N) {
         value2 = newValue;
         i++
     }
-
-    answer = ((result[result.length - 1] + (result[result.length - 2])) * 2) + (result[result.length - 1] * 2)
-
+    answer = ((result[result.length - 1] + (result[result.length - 2])) * 2) + (result[result.length - 1] * 2);
     return answer;
 }
 // 마지막 항목과 그 직전 항목이 항상 한 변의 길이를 말한다.
