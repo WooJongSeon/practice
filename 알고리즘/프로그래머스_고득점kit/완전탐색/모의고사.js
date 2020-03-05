@@ -10,8 +10,7 @@ function solution(answers) {
     let number1 = [1, 2, 3, 4, 5];
     let number2 = [2, 1, 2, 3, 2, 4, 2, 5];
     let number3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
-
-    for (let i = 0; i < 2000; i++) {
+    for (let i = 0; i < answers.length / 5; i++) {
         number1.push(...[1, 2, 3, 4, 5]);
         number2.push(...[2, 1, 2, 3, 2, 4, 2, 5]);
         number3.push(...[3, 3, 1, 1, 2, 2, 4, 4, 5, 5]);
@@ -32,10 +31,8 @@ function solution(answers) {
     var max = count.reduce(function (previous, current) {
         return previous > current ? previous : current;
     });
-    let answer = count.map((value) => { return value === max; })
-        .map((value, index) => { if (value) { return index + 1 } })
+    let answer = count.map((value, index) => { if (value === max) { return index + 1 } })
         .filter((value) => { return value !== undefined });
-    console.log(answer);
     return answer;
 }
 
