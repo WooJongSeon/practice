@@ -1,17 +1,42 @@
-let users = [
-    { id: 1, name: 'ID', age: 36 },
-    { id: 2, name: 'BJ', age: 32 },
-    { id: 3, name: 'JM', age: 32 },
-    { id: 4, name: 'PJ', age: 27 },
-    { id: 5, name: 'HA', age: 25 },
-    { id: 6, name: 'JE', age: 26 },
-    { id: 7, name: 'JI', age: 31 },
-    { id: 8, name: 'MP', age: 23 },
-]
+// 지연 평가 함수 모음
+const L = {}
 
-var temp_users = [];
-for (let i = 0; i < users.length; i++) {
-    if (users[i].age >= 30) {
-        temp_users.push(users[i]);
+L.map = function* (f, iter) {
+    for (let item of iter) {
+        yield f(item)
     }
 }
+
+L.filter = function* (f, iter) {
+    for (let item of iter) {
+        if (f(item)) yield item
+    }
+}
+
+L.take = function* (limit, iter) {
+    for (let item of iter) {
+        yield item
+        if (!--limit) break
+    }
+}
+
+// 엄격한 평가 함수 모음
+const _ = {}
+
+_.take = function (limit, iter) {
+    const result = []
+    for (let item of iter) {
+        result.push(item)
+        if (result.length === limit) return result
+    }
+}
+const arr = [0, 1, 2, 3, 4, 5]
+const result1 = arr.map(num => num + 10).filter(num => num % 2).slice(0, 2)
+
+console.log(result1) // [11, 13]
+
+const result2 = _.take(2,
+    L.filter(num => num % 2,
+        L.map(num => num + 10, arr)))
+
+console.log(result2) // [11, 13]
