@@ -4,7 +4,7 @@ function solution(budgets, M) {
     // 최저값부터 출발해서 증가시킨다.
     let answer;
     budgets.sort((a, b) => { return a > b ? 1 : -1 });
-    let min = budgets[0];
+    let min = 1;
     let max = budgets[budgets.length - 1];
     let mid = 0;
     // 초기 값을 최소 값으로 설정한다.
@@ -18,14 +18,15 @@ function solution(budgets, M) {
                 sum += budgets[i];
             }
         }
-        if (sum > M) {
-            max = mid - 1;
+        if (sum < M) {
+            min = mid + 1;
+            console.log(`mid ${sum}`);
         } else {
-            answer = mid;
-            min = mid + 1
+            max = mid - 1;
+            console.log(`mid2 ${sum}`);
         }
     }
-    return Math.floor(answer);
+    return Math.floor(min - 1);
 }
 // 평균말고 최소값에서부터 올라가야 한다.
 // 1씩 증가시키면서 최대값인 485(M) 값에 근접한지 살핀다.
