@@ -33,22 +33,16 @@ def solution(scoville, K):
     answer = 0
     heapq.heapify(scoville)
     n = 0
-    while len(scoville) > 1:
-        try:
-            min1 = heapq.heappop(scoville)
-            min2 = heapq.heappop(scoville)
-            mix = min1 + (min2 * 2)
-            heapq.heappush(scoville, mix)
-            n += 1
-            first = heapq.heappop(scoville)
-            if first >= K:
-                return n
-            else:
-                heapq.heappush(scoville, first)
-        except:
+    while True:
+        first = heapq.heappop(scoville)
+        if first >= K:
+            break
+        if len(scoville) == 0:
             return -1
-    if min(scoville) < K:
-        return -1
+        second = heapq.heappop(scoville)
+        heapq.heappush(scoville, first + second * 2)
+        answer += 1
+    return answer
 
 
 res = solution([1, 2, 3, 9, 10, 12], 7)
