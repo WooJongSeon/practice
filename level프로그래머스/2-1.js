@@ -1,15 +1,30 @@
 function solution(nums) {
+  // 전체 부분집합의 개수 - 3개를 포함하지 않는 부분 집합의 개수
+  const part = Math.pow(2, nums.length);
+  const partExcept3 = Math.pow(2, 2);
+  console.log(part);
+  console.log(partExcept3);
+
+  const partOver3 = part - partExcept3;
+  console.log(partOver3);
+
+  // 부분집합의 개수가 문제가 아니라. 부분집합을 모두 구하는 코드가 필요하다.
+
+
   var answer = -1;
 
-  // [실행] 버튼을 누르면 출력 값을 볼 수 있습니다.
-  console.log('Hello Javascript')
 
   return answer;
 }
 
+solution([1, 2, 3, 4])
+// 2, 3, 5, 7
+// 1, 2, 4 = 7
 
 
-// 주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다. 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때, nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.
+// 주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다.
+// 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때,
+// nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.
 
 // 제한사항
 // nums에 들어있는 숫자의 개수는 3개 이상 50개 이하입니다.
