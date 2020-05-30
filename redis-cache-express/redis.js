@@ -17,6 +17,12 @@ const get = (req, res, next) => {
     else next();
   });
 }
+app.get('/flush', (req, res) => {
+  redisClient.flushall(() => {
+    console.log('flushed');
+    res.status(200).send();
+  });
+})
 app.get("/data", get, (req, res) => {
   fetch("https://api.spacexdata.com/v3/launches/latest")
     .then(res => res.json())
