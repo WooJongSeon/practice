@@ -20,6 +20,7 @@ const forAwait = async () => {
   return result;
 }
 
+
 promiseAll().then((value) => {
   console.log(value);
 })
