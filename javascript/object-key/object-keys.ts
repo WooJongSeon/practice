@@ -1,14 +1,14 @@
 const item = {
-  a: 'a',
+  a: 'value',
   b: undefined,
-  c: 'c',
+  c: 'value',
   d: undefined,
-  e: 'e',
-  f: 'f',
-  g: 'g',
+  e: 'value',
+  f: 'value',
+  g: 'value',
   h: undefined,
-  i: 'i',
-  j: 'j',
+  i: 'value',
+  j: 'value',
 }
 
 // Object.keys(item).map((value) => {
@@ -23,7 +23,7 @@ class Obj {
       Object.keys(payload).map((value) => {
         if ((payload as any)[value]) {
           setTimeout(() => {
-            console.log(payload[value]);
+            console.log(`key : ${value}  value : ${payload[value]}`);
           }, 10);
         }
       })
