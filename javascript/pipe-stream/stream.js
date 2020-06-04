@@ -7,3 +7,6 @@ server.on('request', (req, res) => {
 });
 
 server.listen(8000);
+(async function name() {
+
+})();
