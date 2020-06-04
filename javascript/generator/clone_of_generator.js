@@ -19,9 +19,6 @@ asyncFlow(function* name(callback) {
   console.log('clone');
 })
 
-
-
-
 // const axios = require('axios');
 // // function* iterGene() {
 // //   const what = yield null;
