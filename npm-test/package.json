@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ignore-field": "0.0.6",
     "stock-cctx": "0.0.7"
   }
 }
