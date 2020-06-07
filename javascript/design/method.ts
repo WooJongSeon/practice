@@ -26,11 +26,4 @@ const UserController = {
   },
 }
 
-class BookController {
-  static async findAll() {
 
-  }
-
-}
-
-BookController.findAll();
