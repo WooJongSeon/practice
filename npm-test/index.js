@@ -1,5 +1,6 @@
 const jsonIgnore = require('ignore-field');
 
+
 const objectToProcess = {
   field1: 'field1',
   field2: 'field2',
