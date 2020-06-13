@@ -8,3 +8,7 @@ Promise.resolve().then(function() { // (B)
 }).then(() => {
   console.log('D');
 })
+
+setImmediate(() => {
+  console.log('immediate');
+});
