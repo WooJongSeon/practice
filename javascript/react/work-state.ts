@@ -1,7 +1,7 @@
 class React {
-  static useState(initValue, arr) {
+  static useState(initValue: any, arr?: Array<any>) {
     let state = initValue;
-    const setState = (changeValue) => {
+    const setState = (changeValue: any) => {
       state = changeValue
     }
     return [state, setState];
