@@ -15,4 +15,10 @@ class SpeedBoat extends Vehicle {
 
 }
 
-const car = new Car();
+// const car = new Car();
+
+class Boat extends SpeedBoat, Car { // 에러가 발생한다. 다중 상속을 지원하지 않는다.
+
+}
+
+const boat = new Boat();

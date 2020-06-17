@@ -17,3 +17,4 @@ function index(params) {
 }
 log(index.length)
 log(typeof [1, 2, 3, 4] === "object")
+log(typeof c);
