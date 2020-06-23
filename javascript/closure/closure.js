@@ -1,3 +1,4 @@
+const url = require('url')
 const getClosure = () => {
   const value = 10;
   const closure = () => {
@@ -10,3 +11,4 @@ const getClosure = () => {
 const closure = getClosure();
 
 console.log(closure())
+
