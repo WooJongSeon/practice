@@ -13,3 +13,31 @@ for (const key in [1, 2, 3, 4, 5]) {
     console.error(error);
   }) // 0
 }
+
+require('fs');
+const EventEmitter = require('events');
+
+class MyEmitter extends EventEmitter { }
+
+const myEmitter = new MyEmitter();
+
+myEmitter.on('event', () => {
+  console.log('an event occurred!');
+});
+myEmitter.on('error', () => {
+  filesystem.end()
+  console.log('an event occurred!');
+});
+
+setInterval(() => {
+  try {
+    myEmitter.emit('event');
+  } catch (error) {
+    myEmitter.emit('error');
+  }
+}, 10);
+// myEmitter.emit('event');
+// other code
+// ...
+
+// myEmitter.emit('event');
