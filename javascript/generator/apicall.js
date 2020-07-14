@@ -24,6 +24,7 @@ const myEmitter = new MyEmitter();
 myEmitter.on('event', () => {
   console.log('an event occurred!');
 });
+
 myEmitter.on('error', () => {
   filesystem.end()
   console.log('an event occurred!');
