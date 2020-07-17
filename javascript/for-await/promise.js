@@ -1,13 +1,16 @@
-
-(async function name() {
+(async function name(params) {
   const promiseArr = [];
   for (let index = 0; index < 5; index++) {
-    const promise = new Promise((resolve, reject) => {
+    const promise = new Promise((res, rej) => {
       setTimeout(() => {
-        console.log(index);
-      }, index * 1000);
-    });
+        console.log(index)
+      }, 1000);
+    })
     promiseArr.push(promise);
   }
-  Promise.all(promiseArr); // await 를 안써도 안쪽 함수는 동작함
+  try {
+    Promise.all(promiseArr);
+  } catch (error) {
+    console.log(`error ${error}`);
+  }
 })();
