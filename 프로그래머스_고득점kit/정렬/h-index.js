@@ -40,3 +40,10 @@ console.log(solution([2, 2, 2, 2, 2]))
 // 2이상이 2개 아니다
 // 3이상이 3개인가 맞다 done
 // n이상이 n개인가? done
+
+
+// const getFileExtensionWithDot = (fileName: string) => {
+//   // asdf.stp인 경우 .stp를 반환하고, 확장자가 없는 경우 ''를 반환한다.
+//   const dotIndex = fileName.lastIndexOf('.');
+//   return dotIndex === -1 ? '' : fileName.substring(dotIndex, fileName.length);
+// };
