@@ -39,6 +39,7 @@
     "moment": "^2.27.0",
     "morgan": "^1.9.1",
     "node": "^14.4.0",
+    "pdfmake": "^0.1.66",
     "swagger-jsdoc": "^4.0.0",
     "typescript": "^3.4.2"
   }
