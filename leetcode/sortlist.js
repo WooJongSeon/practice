@@ -1,49 +1,27 @@
-var sortList = function (head) {
-  if (!head || !head.next) return head
-
-  let slow = head;
-  let fast = head;
-  let splitList = {};
-
-  while (fast && fast.next) {
-    splitList = slow;
-    slow = slow.next;
-    fast = fast.next.next
+const merge = (h1, h2) => {
+  const dummy = {};
+  let cur = dummy;
+  while (h1 && h2) {
+    h1.val < h2.val
+      ? ((cur.next = h1), (h1 = h1.next))
+      : ((cur.next = h2), (h2 = h2.next));
+    cur = cur.next;
   }
-
-  splitList.next = null
-  return merge(sortList(head), sortList(slow))
+  cur.next = h1 || h2;
+  return dummy.next;
 };
-
-function merge(a, b) {
-  let curr = {}
-  const head = curr
-  while (a && b) {
-    if (a.val < b.val) {
-      curr.next = a
-      a = a.next
-    } else {
-      curr.next = b
-      b = b.next
-    }
-    curr = curr.next
+const sortList = head => {
+  if (!head || !head.next) return head;
+  let slow = head;
+  let fast = head.next;
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
   }
-
-  while (a) {
-    curr.next = a
-    a = a.next
-    curr = curr.next
-  }
-
-  while (b) {
-    curr.next = b
-    b = b.next
-    curr = curr.next
-  }
-
-  return head.next
-}
-
+  fast = slow.next;
+  slow.next = null;
+  return merge(sortList(head), sortList(fast));
+};
 
 const obj2 = {
   val: -1,
