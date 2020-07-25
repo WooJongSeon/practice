@@ -14,6 +14,12 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 var sortList = function (head) {
+  if(head === {}) {
+    return {};
+  }
+  if(head === []) {
+    return [];
+  }
   const returnValues = (arr, obj) => {
     if (obj && obj['val'] !== undefined) {
       arr.push(obj['val']);
@@ -92,6 +98,22 @@ const obj2 = {
     }
   }
 }
+const objre = {
+  "val":-1,
+  "next":{
+    "val":0,
+    "next":{
+      "val":3,
+      "next":{
+        "val":4,
+        "next":{
+          "val":5,
+          "next":null
+        }
+      }
+    }
+  }
+}
 // - 1 -> 5 -> 3 -> 4 -> 0
-console.log(sortList(obj2));
+console.log(JSON.stringify(sortList(obj2)));
 // 4->2->1->3

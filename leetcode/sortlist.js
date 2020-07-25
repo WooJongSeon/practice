@@ -62,4 +62,4 @@ const obj2 = {
   }
 }
 // - 1 -> 5 -> 3 -> 4 -> 0
-console.log(sortList(obj2));
+console.log(sortList([]));
