@@ -1,43 +1,25 @@
-const merge = (h1, h2) => {
-  const dummy = {};
-  let cur = dummy;
-  while (h1 && h2) {
-    h1.val < h2.val
-      ? ((cur.next = h1), (h1 = h1.next))
-      : ((cur.next = h2), (h2 = h2.next));
-    cur = cur.next;
+function sortList (head) {
+  if(!head || !head.next) return head;
+  // {} 빈 리스트인 경우 리스트 리턴
+  let fast = head, slow = head;
+  // 리스트를 각각 할당
+  while(fast.next && fast.next.next) {
+      fast = fast.next.next;
+      slow = slow.next;
   }
-  cur.next = h1 || h2;
-  return dummy.next;
-};
-const sortList = head => {
-  if (!head || !head.next) return head;
-  let slow = head;
-  let fast = head.next;
-  while (fast && fast.next) {
-    slow = slow.next;
-    fast = fast.next.next;
-  }
-  fast = slow.next;
+  let middle = slow.next;
   slow.next = null;
-  return merge(sortList(head), sortList(fast));
-};
-
-const obj2 = {
-  val: -1,
-  next: {
-    val: 5,
-    next: {
-      val: 3,
-      next: {
-        val: 4,
-        next: {
-          val: 0,
-          next: null
-        }
-      }
-    }
-  }
+  return merge(sortList(head), sortList(middle));
 }
-// - 1 -> 5 -> 3 -> 4 -> 0
-console.log(sortList([]));
+const merge = (o, t) => {
+  let d = new ListNode(-1); //dummy and temp
+  let tmp = d;
+  while(o && t) {
+      tmp.next = (o.val < t.val) ? o : t;
+      tmp = tmp.next;
+      if(o.val < t.val) o = o.next; else t = t.next;
+  }
+  if(o) tmp.next = o;
+  if(t) tmp.next = t;
+  return d.next;
+}

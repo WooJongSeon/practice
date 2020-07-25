@@ -114,6 +114,8 @@ const objre = {
     }
   }
 }
+
+// head만 input으로 들어오고 그로부터 찾아나가야 한다.
 // - 1 -> 5 -> 3 -> 4 -> 0
 console.log(JSON.stringify(sortList(obj2)));
 // 4->2->1->3
