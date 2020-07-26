@@ -9,6 +9,7 @@ class ListNode {
     this.next = (next === undefined ? null : next)
   }
 }
+
 function pushList(head: ListNode, arr: number[]): any {
   if (!head.next) {
     arr.push(head.val);
@@ -18,24 +19,32 @@ function pushList(head: ListNode, arr: number[]): any {
     return pushList(head.next, arr);
   }
 }
-function makeAnswer(arr: any, node: any): ListNode {
-  while (arr.length) {
-    arr.shift()
+
+// 연결리스트의 마지막 노드 찾기
+function findLastNode(head: ListNode | null): any {
+  if (!head || !head.next) {
+    return head;
+  } else {
+    return findLastNode(head.next);
   }
-  return makeAnswer(new ListNode(arr[0]))
 }
+
 function solution(head: ListNode | null): ListNode | null {
   if (!head || !head.next) {
-    return null;
+    return head;
   }
   const temp: number[] = [];
   pushList(head, temp); // 리스트 세팅 끝
-  //정렬
-  temp.sort((a, b) => a - b); // 오름차순 정렬 완료
-  // list 에 하나씩 다시 push
+  // //정렬
+  temp.sort((a, b) => a - b); // 오름차순 정렬
+  // // list 에 하나씩 다시 push
+  const firstNode = new ListNode(temp[0]);
+  for (let i = 1; i < temp.length; i++) {
+    const last: any = findLastNode(firstNode);
+    last.next = { val: temp[i], next: null }
 
-  console.log(temp);
-  return null;
+  }
+  return firstNode;
 };
 
 const temp = new ListNode(-1,
@@ -47,6 +56,7 @@ const temp = new ListNode(-1,
     )
   )
 );
-console.log(solution(temp));
+const oneNode = new ListNode(1, null);
+console.log(solution(oneNode));
 
 // -1->5->3->4->0
