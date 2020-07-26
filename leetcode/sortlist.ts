@@ -42,7 +42,6 @@ function sortList(head: ListNode | null): ListNode | null {
   for (let i = 1; i < temp.length; i++) {
     const last: any = findLastNode(firstNode);
     last.next = { val: temp[i], next: null }
-
   }
   return firstNode;
 };
