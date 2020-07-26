@@ -29,7 +29,7 @@ function findLastNode(head: ListNode | null): any {
   }
 }
 
-function solution(head: ListNode | null): ListNode | null {
+function sortList(head: ListNode | null): ListNode | null {
   if (!head || !head.next) {
     return head;
   }
@@ -57,6 +57,6 @@ const temp = new ListNode(-1,
   )
 );
 const oneNode = new ListNode(1, null);
-console.log(solution(oneNode));
+console.log(sortList(oneNode));
 
 // -1->5->3->4->0
