@@ -17,8 +17,7 @@ class MinStack {
   }
 
   getMin(): number {
-    const copyArr: any[] = JSON.parse(JSON.stringify(this.arr));
-    return copyArr.sort((a, b) => a - b)[0];
+    return this.arr.reduce((prev, cur) => prev > cur ? cur : prev)
   }
 }
 (function name() {
