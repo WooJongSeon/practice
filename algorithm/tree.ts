@@ -18,13 +18,17 @@ class BinaryTreeNode {
   }
 }
 
-const main = new BinaryTreeNode(1, null, null);
+const main = new BinaryTreeNode(3, null, null);
 
 console.log(main); // main node 1
 
-const node = main.add(0);
+const node = main.add(2);
 
 console.log(node);
+
+const node2 = node.add(1);
+
+console.log(node2);
 // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 //               1 루트            1층  2의 0제곱
 //       2       ,       3        2층  2의 1제곱
