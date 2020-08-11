@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script>
+
+    $(document).ready(() => {
+      // create maxDepth and cDepth variables
+      function findDepth() {
+        return Math.max.apply(null, $('ul, ol').map((i, l) => $(l).find('ul, ol').length)) + 1;
+      }
+
+      // alert
+      alert(findDepth() + 1);
+
+    })
+    function solution() {
+      // write your code in Javascript
+      //
+      // you can access DOM Tree using DOM Object Model:
+      //    document.getElementsByTagName
+      // or using jQuery:
+      //    $('some_tag')
+      //
+      // please note that element.innerText is not supported,
+      // you can use element.textContent instead.
+    }
+  </script>
+</head>
+
+<body>
+  <ul>
+    <li>Item:
+      <ol>
+        <li>Point:
+          <div>
+            <ul>
+              <li>elem1</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </li>
+    <li>elem2</li>
+  </ul>
+  <ul>
+    <li>simple list1</li>
+  </ul>
+  <ul>
+  </ul>
+</body>
+
+</html>
